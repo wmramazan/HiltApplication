@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/firstPageFragment"
+        android:icon="@drawable/ic_page_first"
+        android:title="@string/first_page" />
+
+    <item
+        android:id="@+id/secondPageFragment"
+        android:icon="@drawable/ic_page_second"
+        android:title="@string/second_page" />
+
+    <item
+        android:id="@+id/thirdPageFragment"
+        android:icon="@drawable/ic_page_third"
+        android:title="@string/third_page" />
+
+</menu>

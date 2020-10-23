@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">HiltApplication</string>
+    <string name="first_page">First</string>
+    <string name="second_page">Second</string>
+    <string name="third_page">Third</string>
+    <string name="something_went_wrong">Something went wrong!</string>
+    <string name="clear_database">Clear database</string>
+    <string name="load_users_from_remote">Load users from remote</string>
+    <string name="no_users">There are no users to show.</string>
+    <plurals name="item_count">
+        <item quantity="one">%d record</item>
+        <item quantity="other">%d records</item>
+    </plurals>
+</resources>

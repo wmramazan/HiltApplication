@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.accenture.hiltapplication.database.entity.UserEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/default_padding">
+
+        <ImageView
+            android:id="@+id/image_avatar"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="@null"
+            app:avatar="@{user.avatar}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_page_second" />
+
+        <TextView
+            android:id="@+id/text_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_padding"
+            android:text="@{user.name}"
+            app:layout_constraintBottom_toTopOf="@id/text_date"
+            app:layout_constraintStart_toEndOf="@id/image_avatar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="User Name" />
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.createdAt}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/text_name"
+            app:layout_constraintTop_toBottomOf="@id/text_name"
+            tools:text="Date" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
