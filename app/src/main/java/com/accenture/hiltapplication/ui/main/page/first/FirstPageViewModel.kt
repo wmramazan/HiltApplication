@@ -1,15 +1,17 @@
 package com.accenture.hiltapplication.ui.main.page.first
 
 import androidx.databinding.ObservableBoolean
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.accenture.hiltapplication.common.BaseViewModel
 import com.accenture.hiltapplication.database.entity.UserEntity
 import com.accenture.hiltapplication.repository.user.Repository
 import com.accenture.hiltapplication.source.DataResult
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class FirstPageViewModel @ViewModelInject constructor(
+@HiltViewModel
+class FirstPageViewModel @Inject constructor(
     private val userRepository: Repository<UserEntity>
 ) : BaseViewModel() {
 

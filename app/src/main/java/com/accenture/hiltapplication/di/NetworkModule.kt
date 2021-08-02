@@ -7,7 +7,7 @@ import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.Multibinds
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -16,7 +16,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 abstract class NetworkModule {
 
     @Multibinds
@@ -32,11 +32,11 @@ abstract class NetworkModule {
 
         @Singleton
         @Provides
-        fun provideMoshi() = Moshi.Builder().build()
+        fun provideMoshi(): Moshi = Moshi.Builder().build()
 
         @Singleton
         @Provides
-        fun provideRetrofit(client: OkHttpClient, moshi: Moshi) = Retrofit.Builder()
+        fun provideRetrofit(client: OkHttpClient, moshi: Moshi): Retrofit = Retrofit.Builder()
             .client(client)
             .baseUrl(Constants.API_URL)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
@@ -45,7 +45,7 @@ abstract class NetworkModule {
 
         @Singleton
         @Provides
-        fun provideNetworkService(retrofit: Retrofit) = retrofit.create(NetworkService::class.java)
+        fun provideNetworkService(retrofit: Retrofit): NetworkService = retrofit.create(NetworkService::class.java)
     }
 
 }

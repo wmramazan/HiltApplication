@@ -1,5 +1,6 @@
 package com.accenture.hiltapplication.source.user
 
+import android.annotation.SuppressLint
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.distinctUntilChanged
@@ -30,6 +31,7 @@ class RemoteUserDataSource internal constructor(
         }
     }
 
+    @SuppressLint("NullSafeMutableLiveData")
     override suspend fun refreshUsers() {
         observableUsers.value = getUsers()
     }

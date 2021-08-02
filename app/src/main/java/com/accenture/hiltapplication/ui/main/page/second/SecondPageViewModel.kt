@@ -1,13 +1,15 @@
 package com.accenture.hiltapplication.ui.main.page.second
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import com.accenture.hiltapplication.common.BaseViewModel
 import com.accenture.hiltapplication.di.DataSourceModule
 import com.accenture.hiltapplication.source.user.UserDataSource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class SecondPageViewModel @ViewModelInject constructor(
+@HiltViewModel
+class SecondPageViewModel @Inject constructor(
     @DataSourceModule.UserDataSourceLocal private val dataSource: UserDataSource
 ) : BaseViewModel() {
 
